@@ -4,11 +4,13 @@ import numpy as np
 from io import BytesIO
 from PIL import Image
 
-import tensorflow as tf
+#import tensorflow as tf
+from tensorflow.keras.models import load_model
+from tensorflow.image import resize
 
 from keras.preprocessing.image import ImageDataGenerator, smart_resize
 
-MODEL = tf.keras.models.load_model("golbirev_vanilla_with_tpu_15ep_RMS_LR10e-3.hdf5")
+MODEL = load_model("golbirev_vanilla_with_tpu_15ep_RMS_LR10e-3.hdf5")
 CLASS_NAMES = ["NOT_OK","OK"]
 GOOD_EXTS = ['jpg', 'png', 'bmp','tiff','jpeg', 'gif']
 
@@ -39,7 +41,7 @@ async def predict(
     img_batch = np.expand_dims(image, 0)
     img_batch_shape = img_batch.shape
 
-    ds = tf.image.resize(img_batch, IMAGE_SIZE)
+    ds = resize(img_batch, IMAGE_SIZE)
     #ds_shape = ds.shape
 
     predictions = MODEL.predict(ds)
