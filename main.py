@@ -60,7 +60,7 @@ async def predict(
         "prediction_result":{
             "model_output": float(probabilities),
             "predicted_class": predicted_class,
-            "confidence": confidence,
+            "confidence_percentage": confidence,
         },
         "model_info":{
             "model_name" : model_name_load
