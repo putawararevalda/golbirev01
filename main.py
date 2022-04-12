@@ -10,7 +10,8 @@ from tensorflow.image import resize
 
 from keras.preprocessing.image import ImageDataGenerator, smart_resize
 
-MODEL = load_model("golbirev_vanilla_with_tpu_15ep_RMS_LR10e-3.hdf5")
+model_name_load = "golbirev_vanilla_with_tpu_50ep_RMS_LR10e-3.hdf5"
+MODEL = load_model(model_name_load)
 CLASS_NAMES = ["NOT_OK","OK"]
 GOOD_EXTS = ['jpg', 'png', 'bmp','tiff','jpeg', 'gif']
 
@@ -42,30 +43,32 @@ async def predict(
     img_batch_shape = img_batch.shape
 
     ds = resize(img_batch, IMAGE_SIZE)/255
-    #ds_shape = ds.shape
 
     predictions = MODEL.predict(ds)
-
-    #predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
-    #confidence = np.max(predictions[0])
 
     probabilities = predictions[0][0]
 
     if probabilities > 0.5:
-        predicted_class = CLASS_NAMES[1] # OK
+        predicted_class = CLASS_NAMES[1]
+        confidence = round(probabilities*100, 2) # OK
+
     else:
-        predicted_class = CLASS_NAMES[0] # NOT_OK
+        predicted_class = CLASS_NAMES[0]
+        confidence = round(probabilities*100, 2) # NOT_OK
 
     return {
-        "probability": float(probabilities),
-        "class": predicted_class,
-        "img_batch_shape": img_batch_shape
+        "prediction_result":{
+            "model_output": float(probabilities),
+            "predicted_class": predicted_class,
+            "confidence": confidence,
+        },
+        "model_info":{
+            "model_name" : model_name_load
+        },
+        "image_info":{
+            "image_size" : img_batch_shape
+        }
     }
-
-    #return {
-        #'class':predicted_class,
-        #'confidence':float(confidence)
-    #}
 
 if __name__ == "__main__":
     uvicorn.run(app,host='localhost', port = 8000)
