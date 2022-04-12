@@ -41,7 +41,7 @@ async def predict(
     img_batch = np.expand_dims(image, 0)
     img_batch_shape = img_batch.shape
 
-    ds = resize(img_batch, IMAGE_SIZE)
+    ds = resize(img_batch, IMAGE_SIZE)/255
     #ds_shape = ds.shape
 
     predictions = MODEL.predict(ds)
