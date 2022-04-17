@@ -54,7 +54,7 @@ async def predict(
 
     else:
         predicted_class = CLASS_NAMES[0]
-        confidence = round(probabilities*100, 2) # NOT_OK
+        confidence = round((1-probabilities)*100, 2) # NOT_OK
 
     return {
         "prediction_result":{
