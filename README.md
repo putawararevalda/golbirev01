@@ -18,9 +18,9 @@ This repository **only** serve as API endpoint for the dashboard. The repository
 ```json
 {
     "prediction_result": {
-        "model_output": range[0,1], 
+        "model_output": [0,1], 
         "predicted_class": "NOT_OK" or "OK",
-        "confidence_percentage": range[0,100]
+        "confidence_percentage": r[0,100]
     },
     "model_info": {
         "model_name": name_of_model
