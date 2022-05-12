@@ -6,7 +6,7 @@ Deployed link:
 This app was made as the final assignment of [TelkomAthon #3 Deep Learning Stream](https://www.telkomathon.com/). 
 This repository is using FastAPI as its framework to serve API needed for this project.
 
-The objective of this Machine Learning project is to build a model and web application that the user can use to classify whether the picture uploaded is a valid house picture or not.
+The objective of this Machine Learning project is to build a model and web application that the user can use to classify whether the **picture uploaded** is a valid house picture or not.
 
 This repository **only** serve as API endpoint for the dashboard. The repository for the dashboard (hosted on Heroku with streamlit) can be found here : [Golbirev Streamlit](https://github.com/putawararevalda/golbirev-streamlit)
 
@@ -36,3 +36,11 @@ This repository **only** serve as API endpoint for the dashboard. The repository
 }
 ```
 
+## Dependencies
+
+The app is built using Python 3.9.7. List of dependencies and its version can be found on `requirements.txt`.
+
+## Future Improvement Ideas
+
+- Improve model performance
+- Add alternative endpoint for user to try different models
