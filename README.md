@@ -23,14 +23,14 @@ This repository **only** serve as API endpoint for the dashboard. The repository
         "confidence_percentage": [0,100]
     },
     "model_info": {
-        "model_name": name_of_model
+        "model_name": "name_of_model"
     },
     "image_info": {
         "image_size": [
-            picture_index,
-            width_in_pixel,
-            height_in_pixel,
-            num_of_channels
+            "picture_index",
+            "width_in_pixel",
+            "height_in_pixel",
+            "num_of_channels"
         ]
     }
 }
