@@ -19,8 +19,8 @@ This repository **only** serve as API endpoint for the dashboard. The repository
 {
     "prediction_result": {
         "model_output": [0,1], 
-        "predicted_class": "NOT_OK" or "OK",
-        "confidence_percentage": r[0,100]
+        "predicted_class": ["NOT_OK","OK"],
+        "confidence_percentage": [0,100]
     },
     "model_info": {
         "model_name": name_of_model
