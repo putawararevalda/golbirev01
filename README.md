@@ -1,7 +1,7 @@
 # Golbirev House Classification Project - API Endpoint
 
 Deployed link:
-- Heroku: https://golbirev-01.herokuapp.com/predict
+- Heroku: https://golbirev-01.herokuapp.com
 
 This app was made as the final assignment of [TelkomAthon #3 Deep Learning Stream](https://www.telkomathon.com/). 
 This repository is using FastAPI as its framework to serve API needed for this project.
@@ -12,7 +12,7 @@ This repository **only** serve as API endpoint for the dashboard. The repository
 
 ## Endpoints
 
-1. `/prediction`: Prediction endpoint. Requires body parameters with variable name : `file`
+1. `/predict`: Prediction endpoint. Requires body parameters with variable name : `file`
     - Return: 
 
 ```json
